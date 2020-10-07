@@ -181,7 +181,7 @@ public:
 	}
 
 	//ÏìÓ¦ÍøÂçÏûÏ¢
-	void OnNetMsg(DataHeader* header) {
+	virtual void OnNetMsg(DataHeader* header) {
 		switch (header->cmd)
 		{
 		case CMD_LOGIN_RESULT:

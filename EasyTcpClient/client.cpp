@@ -1,12 +1,6 @@
 #define WIN32_LEAN_AND_MEAN
-//#define _WINSOCK_DEPRECATED_NO_WARNINGS 
 #include"EasyTcpClient.h"
-
 #include<thread>
-//#pragma comment(lib,"ws2_32.lib")
-
-
-
 
 bool g_bRun = true;
 
@@ -45,8 +39,6 @@ void cmdThread(EasyTcpClient* client)
 
 
 
-
-
 int main()
 {
 	EasyTcpClient client;
@@ -57,10 +49,14 @@ int main()
 	std::thread t1(cmdThread, &client);
 	t1.detach();
 
+	
 	EasyTcpClient client2;
-	client2.Connect("127.0.0.1", 4568);
+	client2.Connect("127.0.0.1", 4567);
 	std::thread t2(cmdThread, &client2);
 	t2.detach();
+	
+	
+	
 
 	//3 接收服务器信息 recv
 	char recvBuf[256] = {};
